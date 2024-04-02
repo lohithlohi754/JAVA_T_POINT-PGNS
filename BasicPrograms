@@ -1,0 +1,160 @@
+public class PrintASCIIValues {
+	public static void main(String[] args) {
+		char c1='a';
+		char c2='A';
+		
+		int n1=c1;
+		int n2=c2;
+		
+		System.out.println(c1+"="+n1);
+		System.out.println(c2+"="+n2);
+	}
+}
+-------------------------------------------------------
+public class PrimeNumber {
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		System.out.println("Enter Starting Range: ");
+		int start=scn.nextInt();
+		System.out.println("Enter Ending Range: ");
+		int end=scn.nextInt();
+		
+		for(int i=start;i<=end;i++) {
+			if(i<=1)continue;
+			boolean isPrime=true;
+			for(int j=2;j<=i/2;j++) {
+				if(i%j==0) {
+					isPrime=false;
+					break;
+				}
+			}
+			if(isPrime) {
+				System.out.println(i);
+			}
+		}
+	}
+}
+---------------------------------------------------------
+public class NumberPalindrome {
+	public static void main(String[] args) {
+		int n=121;
+		System.out.println(reverse(n));
+		if(n==reverse(n)) {
+			System.out.println("Palindrome Number");
+		}else {
+			System.out.println("Not Palindrome Number");
+		}
+	}
+	public static int reverse(int n) {
+		int rev=0;
+		while(n>0) {
+			int d=n%10;
+			rev=rev*10+d;
+			n/=10;
+		}
+		return rev;
+	}
+}
+--------------------------------------------------------
+public class GeneratingRandomNumber {
+	public static void main(String[] args) {
+		System.out.println("Random Method: " + byUsingRandomMethod());
+		System.out.println("Method Between: "+byUsingRandomMethodinRange());
+		
+		//By using Random class
+		Random r=new Random();
+		//generating values 0-49 these are random int values
+		int a=r.nextInt(50);
+		System.out.println("By Using Class Int: "+a);
+		
+		//By using double
+		double d=r.nextDouble(20);
+		
+		System.out.println("By using class Double: "+d);
+		
+		
+		//By using ThreadLocalRandomClass
+		int n1=ThreadLocalRandom.current().nextInt();
+		System.out.println("ThreadLocalRandom Int: "+n1);
+	}
+
+	public static double byUsingRandomMethod() {
+
+		// if you want the number in between the numbers
+		/* Math.random()*(max-min+1)+min */
+		return Math.random();
+	}
+
+	public static double byUsingRandomMethodinRange() {
+
+		// if you want the number in between the numbers
+		/* Math.random()*(max-min+1)+min */
+		return Math.random()*(40-20+1)+20;
+	}
+}
+----------------------------------------------------------
+
+package com.tpoint.BasicPrograms;
+
+public class FactorialOfNumber {
+	public static void main(String[] args) {
+		System.out.println(findFactorial(4));
+	}
+	public static int findFactorial(int n) {
+		if(n<=0)return 1;
+		return n*findFactorial(n-1);
+	}
+}
+-----------------------------------------------------------
+
+public class FabinacciSeries {
+	public static void main(String[] args) {
+		int a=0;
+		int b=1;
+		
+		int exp=30;
+		for(int i=2;i<=exp;i++) {
+			int c=a+b;
+			if(i==2) {
+				System.out.println(a);
+				System.out.println(b);
+			}
+			System.out.println(c);
+			a=b;
+			b=c;
+		}
+	}
+}
+-------------------------------------------------------------
+
+public class ArmStrongNumber {
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		System.out.println("Enter A Number: ");
+		int n=scn.nextInt();
+		int sum=0,count=0;
+		int temp=n;;
+		
+		while(n>0) {
+			count+=1;
+			n/=10;
+		}
+		n+=temp;
+		while(n>0) {
+			int rem=n%10;
+			int power=1;
+			for(int i=1;i<=count;i++) {
+				power=power*rem;
+			}
+			sum+=power;
+			n/=10;
+		}
+		if(temp==sum) {
+			System.out.println(temp+" "+ "ArmStrong Number");
+		}else {
+			System.out.println(temp+" "+ "Not ArmStrong Number");
+		}
+	}
+	
+}
+------------------------------------------------------------------------
